@@ -1,0 +1,20 @@
+{
+  "Plugins": [
+    {
+      "Type": "python",
+      "Name": "usdAecoBuildUpValidators",
+      "Root": ".",
+      "Info": {
+        "Validators": {
+          "keywords": ["UsdAecoBuildUpValidators"],
+          "BuildUpArrayLengthsChecker": {
+            "doc": "Error when catalog or occurrence override arrays have different lengths. Includes abstract class prims."
+          },
+          "BuildUpTotalMismatchChecker": {
+            "doc": "Warn when a reported catalog or occurrence thickness differs from the layer sum by more than 1e-8 m or is nonfinite."
+          }
+        }
+      }
+    }
+  ]
+}

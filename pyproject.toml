@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "usdaeco-buildup"
+version = "0.2.3"
+description = "Shared layered sections for OpenUSD catalogs and occurrences"
+license = {file = "LICENSE"}
+requires-python = ">=3.11"
+dependencies = ["usdaeco-toolchain>=0.3.1,<0.4"]
+
+[project.scripts]
+aeco-buildup = "usdaeco_buildup.cli:main"
+
+[tool.setuptools]
+packages = ["usdaeco_buildup", "usdAecoBuildUpValidators"]
+package-dir = {usdaeco_buildup = "tools/usdaeco_buildup", usdAecoBuildUpValidators = "usdAecoBuildUpValidators"}
+
+[tool.setuptools.package-data]
+usdAecoBuildUpValidators = ["plugInfo.json"]
+
+[tool.pytest.ini_options]
+testpaths = ["testenv"]
+python_files = ["test*.py"]

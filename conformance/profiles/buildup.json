@@ -1,0 +1,12 @@
+{
+  "name": "buildup",
+  "description": "Default severities for the shipped buildup validators.",
+  "include_builtin": true,
+  "severity_overrides": {
+    "BuildUpArrayLengths": "error",
+    "BuildUpTotalMismatch": "warn"
+  },
+  "keywords": [
+    "UsdAecoBuildUpValidators"
+  ]
+}

@@ -1,0 +1,16 @@
+#usda 1.0
+(
+    defaultPrim = "Example"
+    metersPerUnit = 1
+    upAxis = "Z"
+    subLayers = [@data/section.derived.usda@, @data/cameras.usda@, @layered_type.usda@]
+)
+
+# One wall occurrence inherits the catalog section; its bodies are derived.
+over "Example" (
+    displayName = "Layered wall section"
+    prepend apiSchemas = ["AecoElementAPI", "AecoClassificationAPI:ifc"]
+) {
+    string aeco:id = "8ec142eb-94de-5c59-8ef8-0b8b702d0d9e"
+    string aeco:class:ifc:code = "IfcWall"
+}

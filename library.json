@@ -1,0 +1,10 @@
+{
+  "name": "usdAecoBuildUp",
+  "version": "0.2.3",
+  "kind": "library",
+  "tier": "section",
+  "requires": {
+    "usdAeco": ">=0.9,<1.0"
+  },
+  "license": "MIT"
+}

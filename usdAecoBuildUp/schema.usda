@@ -1,0 +1,40 @@
+#usda 1.0
+(
+    subLayers = [@usd/schema.usda@, @usdGeom/schema.usda@, @usdAeco/schema.usda@]
+)
+over "GLOBAL" (
+    customData = {
+        string libraryName = "usdAecoBuildUp"
+        string libraryPath = "."
+        bool skipCodeGeneration = true
+        bool useLiteralIdentifier = true
+    }
+) {}
+
+class "AecoBuildUpAPI" (
+    inherits = </APISchemaBase>
+    doc = "Layered section on a catalog class beside AecoTypeAPI. Occurrences inherit the section; arrays have equal lengths. SI dimensions. This API applies to catalog type prims, which are untyped by design."
+    customData = {
+        string className = "BuildUpAPI"
+        token apiSchemaType = "singleApply"
+        string aecoApplicability = "unrestricted"
+    }
+) {
+    double[] aeco:buildUp:thicknesses = [] (
+        doc = "DRIVER (m). Layer widths in exterior-to-interior order; zero-width membranes are allowed."
+    )
+    token[] aeco:buildUp:functions = [] (
+        doc = "DRIVER. Functional role per layer."
+        allowedTokens = ["structure", "substrate", "insulation", "finish", "membrane", "other"]
+    )
+    string[] aeco:buildUp:materials = [] (
+        doc = "DRIVER. Material names per layer; rendering uses UsdShade bindings."
+    )
+    int[] aeco:buildUp:priorities = [] (
+        doc = "DRIVER. Join priority per layer; zero means unspecified."
+    )
+    double aeco:buildUp:totalThickness = 0 (
+        doc = "DERIVED (m). Resolved sum of layer widths; zero means unavailable or empty."
+        aecoDerived = true
+    )
+}

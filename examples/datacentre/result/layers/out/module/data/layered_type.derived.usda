@@ -1,0 +1,10 @@
+#usda 1.0
+
+over "_TypeCatalog"
+{
+    over "LayeredSection"
+    {
+        double aeco:buildUp:totalThickness = 0.2
+    }
+}
+

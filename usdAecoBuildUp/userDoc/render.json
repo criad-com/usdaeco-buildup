@@ -1,0 +1,20 @@
+{
+  "source": "examples/minimal.usda",
+  "drivers_sha256": "0d02d1f3cab20e487737fc1b4b2ad57bf87f1956a47d0bc0040d0945fb2436ab",
+  "purposes": [
+    "guide",
+    "proxy",
+    "render"
+  ],
+  "layers": 3,
+  "total_thickness_m": 0.2,
+  "renders": [
+    {
+      "path": "userDoc/usdAecoBuildUpExample.png",
+      "sha256": "4d746ce567155a0a13e2c17e59ea1d42cd578a70e6f4c8104334c7fc9bdf850c",
+      "width": 1280,
+      "height": 800,
+      "bytes": 60469
+    }
+  ]
+}

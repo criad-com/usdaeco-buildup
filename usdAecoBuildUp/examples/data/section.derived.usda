@@ -1,0 +1,56 @@
+#usda 1.0
+
+def "Example"
+{
+    def Cube "Layer1" (
+        prepend apiSchemas = ["AecoDerivedGeometryAPI"]
+        displayName = "Plaster"
+    )
+    {
+        uniform token aeco:derived:approx = "defaultDims"
+        uniform token aeco:derived:role = "proxy"
+        string aeco:derived:source = "8ec142eb-94de-5c59-8ef8-0b8b702d0d9e"
+        string aeco:derived:stamp = "aeco-buildup 0.2.1 section illustration"
+        color3f[] primvars:displayColor = [(0.55, 0.68, 0.8)]
+        uniform token purpose = "proxy"
+        double size = 1
+        float3 xformOp:scale = (0.02, 0.7, 1)
+        double3 xformOp:translate = (0.01, 0.35, 0.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "Layer2" (
+        prepend apiSchemas = ["AecoDerivedGeometryAPI"]
+        displayName = "Masonry"
+    )
+    {
+        uniform token aeco:derived:approx = "defaultDims"
+        uniform token aeco:derived:role = "proxy"
+        string aeco:derived:source = "8ec142eb-94de-5c59-8ef8-0b8b702d0d9e"
+        string aeco:derived:stamp = "aeco-buildup 0.2.1 section illustration"
+        color3f[] primvars:displayColor = [(0.65, 0.3, 0.16)]
+        uniform token purpose = "proxy"
+        double size = 1
+        float3 xformOp:scale = (0.16, 0.7, 0.9)
+        double3 xformOp:translate = (0.1, 0.35, 0.45)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+
+    def Cube "Layer3" (
+        prepend apiSchemas = ["AecoDerivedGeometryAPI"]
+        displayName = "Plaster"
+    )
+    {
+        uniform token aeco:derived:approx = "defaultDims"
+        uniform token aeco:derived:role = "proxy"
+        string aeco:derived:source = "8ec142eb-94de-5c59-8ef8-0b8b702d0d9e"
+        string aeco:derived:stamp = "aeco-buildup 0.2.1 section illustration"
+        color3f[] primvars:displayColor = [(0.83, 0.85, 0.8)]
+        uniform token purpose = "proxy"
+        double size = 1
+        float3 xformOp:scale = (0.02, 0.7, 0.72)
+        double3 xformOp:translate = (0.19, 0.35, 0.36)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:scale"]
+    }
+}
+

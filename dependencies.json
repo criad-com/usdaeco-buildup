@@ -1,0 +1,39 @@
+{
+  "repos": {
+    "core": {
+      "repo": "usdaeco-core",
+      "library": "usdAeco",
+      "ref": "v0.9.2"
+    },
+    "toolchain": {
+      "repo": "usdaeco-toolchain",
+      "library": null,
+      "ref": "v0.3.8"
+    },
+    "datacentre": {
+      "repo": "usdaeco-datacentre",
+      "library": null,
+      "ref": "v0.4.5"
+    }
+  },
+  "fixtures": {
+    "buildup-schema-baseline": {
+      "repo": "usdaeco-buildup",
+      "ref": "v0.1.2",
+      "path": "testenv/baseline/schema-v0.1.2.usda",
+      "reason": "Immutable digest-pinned Sdf compatibility baseline."
+    },
+    "core-before-required-range": {
+      "repo": "usdaeco-core",
+      "ref": "v0.6.0",
+      "path": "check.py",
+      "reason": "Synthetic plugin metadata that must be rejected by the dependency check."
+    },
+    "core-before-split": {
+      "repo": "usdaeco-core",
+      "ref": "v0.8.4",
+      "path": "check.py",
+      "reason": "Synthetic plugin metadata that must be rejected by the dependency check."
+    }
+  }
+}

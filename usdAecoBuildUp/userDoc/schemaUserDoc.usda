@@ -1,0 +1,16 @@
+#usda 1.0
+(
+    subLayers = [@../schema.usda@]
+)
+over "GLOBAL" (
+    customData = {
+        string libraryName = "usdAecoBuildUp"
+        string userDocTitle = "Layered sections"
+    }
+) {}
+over "AecoBuildUpAPI" (
+    customData = {
+        string userDocBrief = "An ordered layered section on a catalog class, inherited by walls, floors, roofs and ceilings."
+        string userDoc = "Four aligned arrays are drivers in SI metres. The reported total thickness is derived. See examples/minimal.usda for a wall-section illustration."
+    }
+) {}

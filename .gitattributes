@@ -1,0 +1,2 @@
+# usdGenSchema emits a trailing separator line; preserve generator output.
+plugins/**/generatedSchema.usda whitespace=-blank-at-eof

@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+artifacts/
+/result
+/result-*
+flake.lock
+.venv/
+out/
+!**/result/layers/**
+build/
+dist/
