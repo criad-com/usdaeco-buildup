@@ -1,5 +1,8 @@
 # Public-name release checks
 
+Historical v0.2.3 evidence. Current verification is recorded in the
+[v0.2.5 release evidence](toolchain-release.md).
+
 Version 0.2.3 updates public names to github.com/criad-com and pins toolchain
 v0.3.8. Checks ran from source with OpenUSD 26.8 against isolated release
 checkouts of core v0.9.2 and toolchain v0.3.8. The data-centre pin remains

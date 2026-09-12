@@ -23,7 +23,7 @@
                         "usdAeco": ">=0.9,<1.0"
                     }, 
                     "tier": "section", 
-                    "version": "0.2.4"
+                    "version": "0.2.5"
                 }
             }, 
             "LibraryPath": "", 

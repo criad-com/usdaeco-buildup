@@ -1,5 +1,8 @@
 # Facility example release evidence
 
+Historical v0.2.4 evidence. Current verification is recorded in the
+[v0.2.5 release evidence](toolchain-release.md).
+
 Version 0.2.4 replaces the minimal publication with the complete data-centre
 v0.4.6 clash publication, while preserving the small module example and schema.
 Checks use core v0.9.2 and toolchain v0.3.8 with OpenUSD 26.8 and source imports.

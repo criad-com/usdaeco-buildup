@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "usdaeco-buildup"
-version = "0.2.4"
+version = "0.2.5"
 description = "Shared layered sections for OpenUSD catalogs and occurrences"
 license = {file = "LICENSE"}
 requires-python = ">=3.11"

@@ -1,7 +1,7 @@
 # Office build-ups on the demo data centre
 
 Open [result/example.usdc](result/example.usdc) directly in stock `usdview`.
-It contains the full v0.4.6 `clash` publication of `demo-datacentre-01`, with
+It contains the full v0.4.8 `clash` publication of `demo-datacentre-01`, with
 three promoted office build-up catalogs. No sibling checkout or family plugin
 is needed to view the crate.
 
@@ -20,12 +20,12 @@ export AECO_DATACENTRE_ROOT="../usdaeco-datacentre"
 env -u PYTHONPATH PYTHONPATH="$AECO_CORE_ROOT:$PWD" "$PYTHON" examples/datacentre/run.py --publish
 ```
 
-The runner checks v0.4.6 and creates the ignored `inputs/source` alias to that
+The runner checks v0.4.8 and creates the ignored `inputs/source` alias to that
 checkout. It composes `inputs/source/dist/clash/dc.usda` below its own layers.
 Publication archives portable relative paths through this alias; relocating a
 checkout only requires setting `AECO_DATACENTRE_ROOT` and rerunning. Sources
 remain read-only. The source manifest records generator v0.4.4; those published
-layers are unchanged in v0.4.6. Ordinary runs write `out/`; publication updates
+layers are unchanged in v0.4.8. Ordinary runs write `out/`; publication updates
 `result/`, `renders/` and `manifest.json`, but never overwrites expected findings.
 
 [inputs/build-ups.json](inputs/build-ups.json) declares the demonstration

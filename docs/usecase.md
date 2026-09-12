@@ -55,7 +55,7 @@ aliases for old profile keys. Built-in and core validators may be selected too.
 
 ## 6 The example on the demo data centre
 
-The [example](../examples/datacentre/README.md) composes the complete v0.4.6
+The [example](../examples/datacentre/README.md) composes the complete v0.4.8
 `clash` publication: 2,980 elements, 35 spaces, two levels, 6,244 ports and
 3,015 meshes, checked against `dc.manifest.json`. It promotes 20 office walls
 into three catalog specializations that inherit their original source types.
@@ -102,6 +102,6 @@ Time-varying build-ups are not validated beyond default time.
 
 ## 9 Status
 
-Version 0.2.4 targets core v0.9.2 and toolchain v0.3.8. Schema property names,
+Version 0.2.5 targets core v0.9.4 and toolchain v0.3.10. Schema property names,
 defaults, allowed tokens, derived metadata and applicability match v0.1.2.
-See [the release record](datacentre-release.md) for measured checks and deviations.
+See [the release record](toolchain-release.md) for measured checks and deviations.

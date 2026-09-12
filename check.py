@@ -162,9 +162,9 @@ raise SystemExit(main(["validators"]))
     report.check("installed companion loads both validators", installed.returncode == 0 and
                  len(installed.stdout.strip().splitlines()) == 2,
                  installed.stdout.strip() if installed.returncode == 0 else installed.stderr[-600:])
-    report.check("checked dependency releases", Plug.Registry().GetPluginWithName("usdAeco").metadata["aeco"]["version"] == "0.9.2"
-                 and json.loads((KIT / "library.json").read_text())["version"] == "0.3.8",
-                 "core v0.9.2; toolchain v0.3.8")
+    report.check("checked dependency releases", Plug.Registry().GetPluginWithName("usdAeco").metadata["aeco"]["version"] == "0.9.4"
+                 and json.loads((KIT / "library.json").read_text())["version"] == "0.3.10",
+                 "core v0.9.4; toolchain v0.3.10")
     print("== stage: published example (S27 and S28)", flush=True)
     from usdaeco_check.example import check_example
     os.environ["PATH"] = str(Path(sys.executable).parent) + os.pathsep + os.environ.get("PATH", "")

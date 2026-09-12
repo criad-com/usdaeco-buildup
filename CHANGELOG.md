@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.2.5
+
+- public re-pin: toolchain v0.3.10, core v0.9.4, data-centre v0.4.8.
+  Record the three checked revisions separately from their public tag refs.
+- Consume core as a source tree and build its plugin through the shared kit;
+  its example-only inputs no longer enter this flake's dependency graph.
+- Keep the unreleased v0.2.5 package version and supported requirement ranges;
+  retain every historical fixture pin and the v0.2.4 derivation stamp.
+- Republish the facility through the documented example runner; preserve the
+  crate, five USD layers, findings and committed images byte-for-byte. Update
+  only the source/dependency provenance and record fresh-render comparisons.
+- Verify 67 checks, 0 failed, all 29 structure rules and 34 tests. One offline
+  Nix attempt evaluated current-platform outputs but timed out during builds.
+
 ## 0.2.4
 
 - Publish the complete pinned data-centre clash variant with 20 office walls

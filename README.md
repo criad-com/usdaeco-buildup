@@ -57,8 +57,8 @@ env -u PYTHONPATH "$PYTHON" tools/render_example.py
 
 Use Python 3.11+ with OpenUSD 26.8+, jinja2, packaging, numpy and pytest.
 Rendering needs the standard `usdrecord` utility with Embree; Pillow supports
-image tooling. Place built core v0.9.2 and toolchain v0.3.8 checkouts beside this
-repository and data-centre v0.4.6, or set the overrides below. Each checkout
+image tooling. Place built core v0.9.4 and toolchain v0.3.10 checkouts beside this
+repository and data-centre v0.4.8, or set the overrides below. Each checkout
 must match its declared release tag. Source checks need no package install
 or build backend.
 
@@ -110,10 +110,10 @@ and `example` and `render` apps.
 ## Family
 
 This section-tier library requires `usdAeco >=0.9,<1.0`. Checks target core
-v0.9.2 and toolchain v0.3.8 as recorded in [dependencies.json](dependencies.json).
-The example consumes the complete data-centre v0.4.6 `clash` publication.
+v0.9.4 and toolchain v0.3.10 as recorded in [dependencies.json](dependencies.json).
+The example consumes the complete data-centre v0.4.8 `clash` publication.
 Its source manifest records generator v0.4.4 and the original converter/core
-provenance; the publication is retained unchanged in the v0.4.6 release.
+provenance; the publication is retained unchanged in the v0.4.8 release.
 The [family manifest](https://github.com/criad-com/usdaeco-scenarios/blob/main/family.json)
 lists consumers. The shared section schema still depends only on core.
 
@@ -131,21 +131,24 @@ lists consumers. The shared section schema still depends only on core.
 
 ## Status
 
-Version 0.2.4 promotes office build-ups on the complete facility. The section
-schema, its five properties and runtime applicability remain unchanged.
+Version 0.2.5 pins public releases of toolchain v0.3.10, core v0.9.4 and
+data-centre v0.4.8. Core and data-centre are source inputs; the shared kit
+builds the core plugin without resolving its example-only dependencies.
+The supported requirement ranges and section derivation remain unchanged.
 Verified: **67 checks, 0 failed; 29 raw structure checks, 0 failed; 34 tests
-passed**. Both layout comparisons pass. Both build-up rules and all eight core
-validators execute: zero errors and two pre-existing proxy-classification
-warnings. The single Nix attempt failed during transitive input resolution;
-Nix builds remain unproven. See
-[release evidence and deviations](docs/datacentre-release.md) for gate results.
+passed**. The republished crate and five USD layers are byte-identical; only
+publication provenance changes. The single offline Nix attempt evaluated the
+current-platform outputs, then timed out during dependency builds; completed
+Nix builds and online resolution remain unproven.
+See [release evidence and deviations](docs/toolchain-release.md) for measured
+checks and the offline Nix outcome.
 
 The schema declares `aecoApplicability = "unrestricted"` because catalog type
 prims are untyped by design, passing S10 directly. The Sdf comparison permits
 only that customData addition and its explanatory doc sentence. Toolchain
-v0.3.8 also accepts the published `aeco:buildUp:` spelling directly (S09).
+v0.3.10 also accepts the published `aeco:buildUp:` spelling directly (S09).
 Raw lint results remain visible in `out/check.json`. The MIT release licence
-passes S01/S25 directly with toolchain v0.3.8; compatibility handling remains
+passes S01/S25 directly with toolchain v0.3.10; compatibility handling remains
 for earlier toolchains. Other term hits still fail.
 
 Validator errors are now `BuildUpArrayLengths` and `BuildUpTotalMismatch`.
