@@ -20,38 +20,46 @@ are unchanged from v0.1.2. Rendering materials use UsdShade.
 
 ## The example
 
-Open [examples/minimal.usda](examples/minimal.usda) directly in `usdview`.
-One wall occurrence inherits a 20/160/20 mm plaster/masonry/plaster catalog
-section. Three coloured proxy Cubes show the layer offsets without running
-tools or loading family plugins. Finish cutbacks expose the section; their
-heights and the 0.70 m length are illustrative. The bodies carry the core
-representation mark and live in a separate derived layer.
+Open the [standalone facility](examples/datacentre/result/example.usdc) in stock
+`usdview`. It contains the complete pinned `clash` variant of
+`demo-datacentre-01`, with 20 office-wing walls inheriting three build-ups:
+16 plasterboard partitions, two blockwork walls and two WC lined partitions.
+Six representative walls have 20 derived layer bodies. Blue, orange and green
+identify the three recipes. The cutaway hides roof/ceiling bodies, the office
+facade and its upper floor so both storeys can be reviewed; all source prims
+remain in the crate.
 
-The [published result](examples/datacentre/result/example.usdc) is flattened
-and self-contained. Its [own layers](examples/datacentre/result/README.md)
-remain available as text, and [vanilla.png](examples/datacentre/result/vanilla.png)
-records a fresh stock-USD render. See [the example instructions](examples/datacentre/README.md).
+![Facility with promoted office walls](examples/datacentre/result/vanilla.png)
+
+With the environment below and the pinned data-centre checkout available:
+
+```sh
+export AECO_DATACENTRE_ROOT="../usdaeco-datacentre"
+env -u PYTHONPATH PYTHONPATH="$AECO_CORE_ROOT:$PWD" "$PYTHON" examples/datacentre/run.py --publish
+```
+
+The [example instructions](examples/datacentre/README.md) explain the source
+alias, assumed recipes, manifest-derived counts and
+[exploded WC section](examples/datacentre/renders/exploded.png). Ordinary runs
+write ignored `out/`; `--publish` updates the self-contained crate, editable
+own layers, renders and manifest. Expected findings are never silently replaced.
+
+The [small synthetic section](examples/minimal/README.md) remains useful for
+learning inheritance and muting without a facility checkout. Its stable
+[entry point](examples/minimal.usda) still supports:
 
 ```sh
 env -u PYTHONPATH "$PYTHON" tools/aeco_buildup.py layers examples/minimal.usda /Example
 env -u PYTHONPATH "$PYTHON" tools/render_example.py
-env -u PYTHONPATH "$PYTHON" examples/datacentre/run.py --publish
 ```
-
-The query prints three ordered rows. Rendering writes `out/preview/`; add
-`--publish` to refresh the committed image, derived illustration and render
-manifest. The shared `run.py --publish` command then refreshes the standalone
-result, renders and example manifest in minimal mode. Leave data-centre source
-overrides unset. The [catalog-only stage](examples/layered_type.usda) remains available.
-
-![Layered wall section](usdAecoBuildUp/userDoc/usdAecoBuildUpExample.png)
 
 ## Build and check
 
 Use Python 3.11+ with OpenUSD 26.8+, jinja2, packaging, numpy and pytest.
 Rendering needs the standard `usdrecord` utility with Embree; Pillow supports
 image tooling. Place built core v0.9.2 and toolchain v0.3.8 checkouts beside this
-repository, or set the overrides below. Source checks need no package install
+repository and data-centre v0.4.6, or set the overrides below. Each checkout
+must match its declared release tag. Source checks need no package install
 or build backend.
 
 ```sh
@@ -59,10 +67,12 @@ export PYTHON=python3
 export TOOLCHAIN_DIR="../usdaeco-toolchain"
 export AECO_CORE_ROOT="../usdaeco-core"
 export CORE_PLUGIN_DIR="$AECO_CORE_ROOT/out/plugins/usdAeco/resources"
+export AECO_DATACENTRE_ROOT="../usdaeco-datacentre"
 env -u PYTHONPATH ./build.sh
 env -u PYTHONPATH PYTHONPATH="$AECO_CORE_ROOT:$PWD" "$PYTHON" check.py --report out/check.json
 env -u PYTHONPATH "$PYTHON" -m pytest -q
 env -u PYTHONPATH "$PYTHON" tools/check_structure.py
+env -u PYTHONPATH "$PYTHON" tools/check_relocation.py --reuse-current-run
 env -u PYTHONPATH "$PYTHON" tools/aeco_buildup.py validators
 env -u PYTHONPATH "$PYTHON" tools/aeco_buildup.py check examples/minimal.usda --include-core
 nix flake check --no-write-lock-file
@@ -87,8 +97,8 @@ export PXR_PLUGINPATH_NAME="$CORE_PLUGIN_DIR:$PWD/out/plugins/usdAecoBuildUp/res
 
 Python validator loading also needs the companion modules importable; the
 source CLI and tests set up their import paths. An installation has its
-validator and companion together under `out/python/`. Every example composes
-with no family plugins; only stock prim types are used.
+validator and companion together under `out/python/`. The published facility composes
+with no family plugins; every Aeco typed prim has a stock fallback.
 
 Flake inputs use public release refs. The
 [toolchain instructions](https://github.com/criad-com/usdaeco-toolchain#build-and-check)
@@ -101,11 +111,11 @@ and `example` and `render` apps.
 
 This section-tier library requires `usdAeco >=0.9,<1.0`. Checks target core
 v0.9.2 and toolchain v0.3.8 as recorded in [dependencies.json](dependencies.json).
-The harness also records data-centre v0.4.5; this minimal library example does
-not consume that data or prove facility composition.
+The example consumes the complete data-centre v0.4.6 `clash` publication.
+Its source manifest records generator v0.4.4 and the original converter/core
+provenance; the publication is retained unchanged in the v0.4.6 release.
 The [family manifest](https://github.com/criad-com/usdaeco-scenarios/blob/main/family.json)
-lists consumers. The wall use case owns the full workflow and data-centre
-example; this shared library has no importer or independent facility example.
+lists consumers. The shared section schema still depends only on core.
 
 ## Layout
 
@@ -116,18 +126,19 @@ example; this shared library has no importer or independent facility example.
 | tools/usdaeco_buildup/ | Ordered section query, validation, profiles and CLI |
 | testenv/ | Registry and defect tests, source bootstrap, v0.1.2 Sdf baseline |
 | conformance/, docs/ | Default profile, property reference, scope and compatibility notes |
-| examples/ | Stable aliases and the minimal publication harness with committed result/ |
+| examples/ | Facility publication, small synthetic section and stable aliases |
 | out/ | Ignored installation, reports and preview artifacts |
 
 ## Status
 
-Version 0.2.3 updates public names to github.com/criad-com and checks against
-toolchain v0.3.8. Verified: 59 checks, 0 failed; 29 raw structure rules passed;
-27 source tests passed. [Release checks](docs/public-names.md) record the Nix
-limitation. Since v0.2.1, the layered section is visible by default with a
-standalone result and plugin-free render.
-All five properties and runtime applicability remain unchanged.
-See [the v0.2.1 acceptance notes](docs/acceptance.md) for that release's numbers and limits.
+Version 0.2.4 promotes office build-ups on the complete facility. The section
+schema, its five properties and runtime applicability remain unchanged.
+Verified: **67 checks, 0 failed; 29 raw structure checks, 0 failed; 34 tests
+passed**. Both layout comparisons pass. Both build-up rules and all eight core
+validators execute: zero errors and two pre-existing proxy-classification
+warnings. The single Nix attempt failed during transitive input resolution;
+Nix builds remain unproven. See
+[release evidence and deviations](docs/datacentre-release.md) for gate results.
 
 The schema declares `aecoApplicability = "unrestricted"` because catalog type
 prims are untyped by design, passing S10 directly. The Sdf comparison permits

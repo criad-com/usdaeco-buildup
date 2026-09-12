@@ -55,14 +55,28 @@ aliases for old profile keys. Built-in and core validators may be selected too.
 
 ## 6 The example on the demo data centre
 
-The facility workflow and example belong to
-[usdaeco-wall](https://github.com/criad-com/usdaeco-wall), using
-`demo-datacentre-01`. As a shared library this repository carries a minimal
-section illustration rather than a separate facility pipeline. Its three
-layers total 0.20 m. The camera and proxy geometry compose in vanilla USD.
-The [publication harness](../examples/datacentre/README.md) commits the flattened
-stage, diffable own layers and an independently rendered vanilla image in
-minimal mode; its data-centre pin records no facility execution.
+The [example](../examples/datacentre/README.md) composes the complete v0.4.6
+`clash` publication: 2,980 elements, 35 spaces, two levels, 6,244 ports and
+3,015 meshes, checked against `dc.manifest.json`. It promotes 20 office walls
+into three catalog specializations that inherit their original source types.
+Existing IFC classification and type model select partition and blockwork;
+spatial adjacency to the WC selects its lining specialization. No occurrence
+is replaced, reparented or assigned a new identity.
+
+The committed recipes are explicit demonstration assumptions: the publication
+provides total widths, not these layer-by-layer material specifications. The
+150 mm partition is 25/100/25 mm; the 200 mm blockwork is 15/170/15 mm; the
+150 mm WC assembly is 25/100/15/10 mm. The WC finish faces its room. The two
+blockwork walls and two examples of each partition recipe produce 20 gross
+rectangular proxy bodies from resolved arrays and published dimensions.
+Openings, joins and stud detail are not evaluated.
+
+The stock render shows the facility with blue partitions, orange blockwork
+and green WC lining. Its removable presentation layer hides four roof/ceiling
+bodies plus 17 office facade/upper-floor bodies, retaining every source prim.
+The separate exploded study shows a 1.4 by 1.8 m sample of one WC wall; only
+that study changes the layer spacing. The small synthetic example remains a
+quick way to understand inheritance without loading the facility.
 
 ## 7 Trade-offs and alternatives
 
@@ -80,14 +94,14 @@ allows only that customData declaration and its doc sentence.
 
 ## 8 Out of scope and open questions
 
-No importer, joins, opening subtraction, thermal calculation, wall evaluation
+No importer, joins, opening subtraction, thermal calculation, production wall evaluation
 or material database is supplied. Negative widths, unknown functional tokens
 and priority policy have no additional library-specific rule in this release.
-The preview's finish cutbacks expose its layers; their heights are illustrative.
+Both rectangular previews omit openings and joins; material recipes are illustrative.
 Time-varying build-ups are not validated beyond default time.
 
 ## 9 Status
 
-Version 0.2.3 targets core v0.9.2 and toolchain v0.3.8. Schema property names,
+Version 0.2.4 targets core v0.9.2 and toolchain v0.3.8. Schema property names,
 defaults, allowed tokens, derived metadata and applicability match v0.1.2.
-See [the acceptance record](acceptance.md) for measured checks and deviations.
+See [the release record](datacentre-release.md) for measured checks and deviations.

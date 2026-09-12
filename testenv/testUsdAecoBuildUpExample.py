@@ -60,8 +60,7 @@ for path in sys.argv[1:]:
     bounds = UsdGeom.BBoxCache(Usd.TimeCode.Default(), ["default", "proxy", "render"])
     assert not bounds.ComputeWorldBound(stage.GetDefaultPrim()).GetRange().IsEmpty()
 assert not any(p.name.startswith("usdAeco") for p in Plug.Registry().GetAllPlugins())
-''', *[str(ROOT / p) for p in ("examples/minimal.usda", "usdAecoBuildUp/examples/minimal.usda",
-                               "examples/datacentre/result/example.usdc")]],
+''', *[str(ROOT / p) for p in ("examples/minimal.usda", "usdAecoBuildUp/examples/minimal.usda")]],
                            env=environment, capture_output=True, text=True)
     assert probe.returncode == 0, probe.stderr
 

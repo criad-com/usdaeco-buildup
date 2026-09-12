@@ -2,14 +2,14 @@
   description = "usdAecoBuildUp shared layered sections";
   inputs = {
     toolchain.url = "github:criad-com/usdaeco-toolchain?ref=v0.3.8";
-    datacentre.url = "github:criad-com/usdaeco-datacentre?ref=v0.4.5";
+    datacentre.url = "github:criad-com/usdaeco-datacentre?ref=v0.4.6";
     datacentre.flake = false;
     nixpkgs.follows = "toolchain/nixpkgs";
     core.url = "github:criad-com/usdaeco-core?ref=v0.9.2";
     core.inputs.toolchain.follows = "toolchain";
     core.inputs.nixpkgs.follows = "nixpkgs";
   };
-  outputs = { self, nixpkgs, toolchain, core, ... }:
+  outputs = { self, nixpkgs, toolchain, core, datacentre, ... }:
     let
       eachSystem = nixpkgs.lib.genAttrs [ "aarch64-darwin" "x86_64-linux" ];
       forSystem = system:
@@ -28,14 +28,17 @@
           setup = ''
             export TOOLCHAIN_DIR=${toolchain}
             export AECO_CORE_ROOT=${core}
+            export AECO_DATACENTRE_ROOT=${datacentre}
             export CORE_PLUGIN_DIR=${corePlugin}/plugins/usdAeco/resources
           '';
           example = pkgs.writeShellApplication {
             name = "example";
             runtimeInputs = [ kit.pythonEnv kit.usd-dev ];
             text = setup + ''
-              env -u PYTHONPATH python ${self}/tools/aeco_buildup.py layers \
-                ${self}/examples/minimal.usda /Example "$@"
+              cp -R ${self} example-work
+              chmod -R u+w example-work
+              env -u PYTHONPATH PYTHONPATH="${core}:$PWD/example-work" python \
+                example-work/examples/datacentre/run.py "$@"
             '';
           };
           render = pkgs.writeShellApplication {

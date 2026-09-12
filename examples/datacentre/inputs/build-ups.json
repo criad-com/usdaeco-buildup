@@ -1,0 +1,33 @@
+{
+  "office_envelope_xy": [12, -12, 30, 0],
+  "representatives_per_recipe": 2,
+  "recipes": [
+    {
+      "name": "PlasterboardPartition", "label": "Plasterboard partition — 150 mm",
+      "source_model": "Internal Wall 150", "ifc_code": "IfcWall.PARTITIONING",
+      "thicknesses": [0.025, 0.1, 0.025],
+      "functions": ["finish", "structure", "finish"],
+      "materials": ["Plasterboard", "Metal stud and insulation zone", "Plasterboard"],
+      "priorities": [10, 50, 10], "color": [0.08, 0.48, 0.82],
+      "layer_colors": [[0.75, 0.85, 0.94], [0.08, 0.48, 0.82], [0.58, 0.73, 0.86]]
+    },
+    {
+      "name": "Blockwork", "label": "Finished blockwork — 200 mm",
+      "source_model": "Fire Wall 200", "ifc_code": "IfcWall.SOLIDWALL",
+      "thicknesses": [0.015, 0.17, 0.015],
+      "functions": ["finish", "structure", "finish"],
+      "materials": ["Plaster", "Dense concrete blockwork", "Plaster"],
+      "priorities": [10, 50, 10], "color": [0.82, 0.32, 0.10],
+      "layer_colors": [[0.93, 0.80, 0.67], [0.82, 0.32, 0.10], [0.83, 0.70, 0.57]]
+    },
+    {
+      "name": "WcLining", "label": "WC lined partition — 150 mm",
+      "source_model": "Internal Wall 150", "ifc_code": "IfcWall.PARTITIONING",
+      "thicknesses": [0.025, 0.1, 0.015, 0.01],
+      "functions": ["finish", "structure", "substrate", "finish"],
+      "materials": ["Plasterboard", "Metal stud and insulation zone", "Moisture-resistant board", "Tile finish"],
+      "priorities": [10, 50, 20, 10], "color": [0.03, 0.68, 0.44],
+      "layer_colors": [[0.78, 0.86, 0.80], [0.10, 0.38, 0.33], [0.40, 0.67, 0.55], [0.03, 0.68, 0.44]]
+    }
+  ]
+}

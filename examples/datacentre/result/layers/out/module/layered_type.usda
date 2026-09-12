@@ -1,7 +1,0 @@
-#usda 1.0
-(
-    defaultPrim = "Example"
-    metersPerUnit = 1
-    upAxis = "Z"
-    subLayers = [@data/layered_type.derived.usda@, @data/layered_type.drivers.usda@]
-)

@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 import sys
 
-__version__ = "0.2.3"
+__version__ = "0.2.4"
 ROOT = Path(__file__).resolve().parents[2]
 SCHEMA_DIR = (ROOT / "usdAecoBuildUp" if (ROOT / "usdAecoBuildUp/schema.usda").is_file()
               else ROOT / "plugins/usdAecoBuildUp/resources")

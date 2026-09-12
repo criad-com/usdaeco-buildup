@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.4
+
+- Publish the complete pinned data-centre clash variant with 20 office walls
+  promoted to three build-up catalogs and 20 derived bodies on six walls.
+- Add a stock-USD facility cutaway and an owned exploded WC lining study;
+  retain the small synthetic section as a separate learning example.
+- Check the manifest census, all eight core validators, both build-up rules,
+  driver muting, seeded defects and result portability across two layouts.
+- Pin data-centre v0.4.6; retain core v0.9.2 and toolchain v0.3.8.
+  Public names → github.com/criad-com were already shipped in v0.2.3.
+
+
 ## 0.2.3
 
 - Public names → github.com/criad-com; re-pin toolchain to v0.3.8.

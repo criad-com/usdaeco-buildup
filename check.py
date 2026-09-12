@@ -169,6 +169,17 @@ raise SystemExit(main(["validators"]))
     from usdaeco_check.example import check_example
     os.environ["PATH"] = str(Path(sys.executable).parent) + os.pathsep + os.environ.get("PATH", "")
     report.add(check_example(ROOT / "examples/datacentre"))
+    from test_datacentre import published_facility_contract
+    report.run("published crate preserves the complete facility census", published_facility_contract)
+    # Section libraries skip story rules in raw lint; exercise the shipped example explicitly.
+    from usdaeco_check.structure import Context, RULES
+    context = Context(ROOT, deps, [])
+    context.story = True
+    def example_rule(number):
+        RULES[number](context)  # Rules signal defects with exceptions; None means success.
+        return True
+    for number in (20, 21, 22, 23, 27, 28, 29):
+        report.run(f"example S{number:02d}", example_rule, number)
     if args.report:
         args.report.parent.mkdir(parents=True,exist_ok=True)
         args.report.write_text(json.dumps({'checks':[asdict(r) for r in report.results],
